@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/back_escuro_mobile.png);
+  --stroke_color: rgba(255, 255, 255, 0.5);
+  --surface_color: rgba(255, 255, 255, 0.1);
+  --surface_color_hover: rgba(255, 255, 255, 0.05);
+  --stroke_color_hover: rgba(255, 255, 255, 0.1);
+  --highlight_color: rgba(255, 255, 255, 0.2);
+  --switch_bg: url(./assets/moon-stars.svg);
+}
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/back_claro_mobile.png);
+  --stroke_color: rgba(0, 0, 0, 0.5);
+  --surface_color: rgba(0, 0, 0, 0.04);
+  --surface_color_hover: rgba(0, 0, 0, 0.02);
+  --stroke_color_hover: rgba(0, 0, 0, 1);
+  --highlight_color: rgba(201, 201, 201, 0.452);
+  --switch_bg: url(./assets/sun.svg);
+}
+body {
+  /*
+  Primeira forma de fazer: {
+
+  background-image: url(./assets/back_escuro_mobile.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+}*/
+
+  /*Agora a imagem começa no eixo y de cima e nao fica simplesmente em cima no meio/segunda forma de fazer short hand ou atalho {
+   */
+
+  /*background: color image repeat position/size*/
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * {
+  font-family: "Inter", san-serif;
+  color: var(--text-color);
+}
+#container {
+  width: 360px;
+
+  margin: 56px auto 0px auto;
+  padding: 0 24px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  width: 112px;
+  margin: auto;
+}
+#profile p {
+  font-weight: 500;
+
+  line-weight: 24px;
+  margin-top: 8px;
+}
+
+/* switch theme */
+
+#switch_theme {
+  position: relative;
+  width: 64px;
+  margin: 0px auto;
+}
+#switch_theme button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch_bg) no-repeat center;
+  border: none;
+  border-radius: 50%;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.light #switch_theme button {
+  right: 0px;
+  left: initial;
+}
+
+#switch_theme span {
+  display: block;
+  width: 64px;
+  height: 24px;
+
+  background: var(--surface_color);
+  border: 1px solid var(--stroke_color);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+/*Outra forma de fazer: 
+#profile img{
+width: 112px;
+margin:auto;
+display:block;
+
+css tricks da pra brincar um pouco 
+*/
+
+/* links */
+ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 24px 0;
+}
+ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 16px 24px;
+
+  background: var(--surface_color);
+  border: 1px solid var(--stroke_color);
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(5x);
+
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: background 0.4s;
+}
+
+ul li a:hover {
+  background: var(--surface_color_hover);
+  border: 1.8px solid var(--stroke_color_hover);
+}
+/*social links */
+#social_links {
+  display: flex;
+  gap: 32px;
+  padding: 24px 0;
+  font-size: 24px;
+  justify-content: center;
+}
+
+#social_links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.5s;
+  border-radius: 50%;
+}
+#social_links a:hover {
+  background: var(--highlight_color);
+}
+
+#footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 24px 0;
+  color: var(--text-color);
+}
+
+#footer a {
+  border-radius: 24px;
+  padding: 8px 16px;
+  transition: background 0.5s;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  background: var(--highlight_color);
+
+  cursor: pointer;
+}
