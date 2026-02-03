@@ -86,10 +86,18 @@ body * {
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+  animation: slide-out 0.4s;
 }
 .light #switch_theme button {
-  right: 0px;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch_theme button:hover {
+  outline: 8px solid var(--highlight_color);
+}
+
+.light #switch_theme button:hover {
+  outline: 8px solid var(--highlight_color);
 }
 
 #switch_theme span {
@@ -193,5 +201,23 @@ ul li a:hover {
 
   .light {
     --bg-url: url(./assets/Background_claro.png);
+  }
+}
+
+/*animation */
+@keyframes slide-in {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 32px;
+  }
+}
+@keyframes slide-out {
+  0% {
+    left: 32px;
+  }
+  100% {
+    left: 0px;
   }
 }
